@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Página Web Mejorada (Todo en Uno)</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+
+        body {
+
+            font-family: 'Roboto', sans-serif; /* Fuente Materialize */
+
+            background-color: #f4f4f4;
+
+        }
+
+        /* Estilos para el Jumbotron/Hero Section */
+
+        .jumbotron {
+
+            background-image: linear-gradient(45deg, #007bff, #0056b3);
+
+            color: white;
+
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+        }
+
+        .jumbotron .btn {
+
+            background-color: #ffc107 !important; /* Color Materialize Yellow */
+
+            color: #333 !important;
+
+        }
+
+        .jumbotron .btn:hover {
+
+            background-color: #e0a800 !important;
+
+        }
+
+        /* Ajustes para las Cards de Materialize dentro de Bootstrap Columns */
+
+        .card.medium {
+
+            display: flex;
+
+            flex-direction: column;
+
+            height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+
+        }
+
+        .card-image {
+
+            flex-grow: 1; /* Permite que la imagen ocupe el espacio disponible */
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden; /* Para que la imagen no se salga */
+
+        }
+
+        .card-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover; /* Ajusta la imagen para cubrir el área sin distorsionar */
+
+        }
+
+        .card-content {
+
+            flex-shrink: 0; /* Evita que el contenido se encoja */
+
+        }
+
+        .card-action {
+
+            flex-shrink: 0;
+
+            margin-top: auto; /* Empuja el action a la parte inferior de la tarjeta */
+
+        }
+
+        /* Sombra suave para las tarjetas */
+
+        .card {
+
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+
+        }
+
+        .card.hoverable:hover {
+
+            box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+        }
+
+        /* Estilos para el formulario de contacto */
+
+        #contacto .card {
+
+            border-radius: 10px;
+
+        }
+
+        /* Para asegurar que los iconos de Materialize en input-field se alineen correctamente */
+
+        .input-field .prefix ~ input, .input-field .prefix ~ textarea {
+
+            margin-left: 3rem;
+
+            width: calc(100% - 3rem);
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="light-blue darken-4">
+
+        <div class="nav-wrapper container">
+
+            <a href="#" class="brand-logo">Mi Marca</a>
+
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+            <ul class="right hide-on-med-and-down">
+
+                <li><a href="#inicio">Inicio</a></li>
+
+                <li><a href="#acerca">Acerca de</a></li>
+
+                <li><a href="#servicios">Servicios</a></li>
+
+                <li><a href="#contacto">Contacto</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+
+        <li><a href="#inicio">Inicio</a></li>
+
+        <li><a href="#acerca">Acerca de</a></li>
+
+        <li><a href="#servicios">Servicios</a></li>
+
+        <li><a href="#contacto">Contacto</a></li>
+
+    </ul>
+
+    <main class="container mt-4">
+
+        <section id="inicio" class="jumbotron text-center bg-light p-5 rounded-3 mb-5">
+
+            <h1 class="display-4">¡Bienvenido a Mi Página Web Mejorada!</h1>
+
+            <p class="lead">Combinando lo mejor de Bootstrap y Materialize para una experiencia única.</p>
+
+            <hr class="my-4">
+
+            <p>Descubre lo que podemos hacer por ti.</p>
+
+            <button class="btn btn-primary btn-lg waves-effect waves-light">Más Información <i class="material-icons right">arrow_forward</i></button>
+
+        </section>
+
+        <section id="acerca" class="row mb-5">
+
+            <div class="col-md-6">
+
+                <h2>Acerca de Nosotros</h2>
+
+                <p>Somos una empresa dedicada a ofrecer soluciones innovadoras para nuestros clientes. Nuestra misión es brindar servicios de alta calidad con un enfoque en la satisfacción del usuario.</p>
+
+                <p>Con años de experiencia en el sector, nuestro equipo está altamente capacitado para afrontar cualquier desafío y convertirlo en una oportunidad de éxito.</p>
+
+                <div class="card">
+
+                    <div class="card-content">
+
+                        <span class="card-title">Nuestra Visión</span>
+
+                        <p>Ser líderes en el mercado, reconocidos por nuestra excelencia y compromiso con la innovación.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+
+                <div class="card p-3 shadow-sm text-center">
+
+                    <h3>¡Elige lo mejor!</h3>
+
+                    <p>Una combinación perfecta de diseño y funcionalidad.</p>
+
+                    <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Imagen+Demo" class="img-fluid rounded" alt="Imagen Demo">
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="servicios" class="mb-5">
+
+            <h2 class="text-center mb-4">Nuestros Servicios</h2>
+
+            <div class="row">
+
+                <div class="col-md-4 mb-4">
+
+                    <div class="card medium hoverable">
+
+                        <div class="card-image">
+
+                            <img src="https://via.placeholder.com/400x250/2196f3/ffffff?text=Servicio+1">
+
+                            <span class="card-title">Desarrollo Web</span>
+
+                            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+
+                        </div>
+
+                        <div class="card-content">
+
+                            <p>Creamos sitios web modernos y responsivos, adaptados a tus necesidades y objetivos.</p>
+
+                        </div>
+
+                        <div class="card-action">
+
+                            <a href="#">Ver Detalles</a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 mb-4">
+
+                    <div class="card medium hoverable">
+
+                        <div class="card-image">
+
+                            <img src="https://via.placeholder.com/400x250/4caf50/ffffff?text=Servicio+2">
+
+                            <span class="card-title">Diseño Gráfico</span>
+
+                            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+
+                        </div>
+
+                        <div class="card-content">
+
+                            <p>Diseños impactantes que capturan la esencia de tu marca y atraen a tu audiencia.</p>
+
+                        </div>
+
+                        <div class="card-action">
+
+                            <a href="#">Ver Detalles</a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 mb-4">
+
+                    <div class="card medium hoverable">
+
+                        <div class="card-image">
+
+                            <img src="https://via.placeholder.com/400x250/ff9800/ffffff?text=Servicio+3">
+
+                            <span class="card-title">Marketing Digital</span>
+
+                            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+
+                        </div>
+
+                        <div class="card-content">
+
+                            <p>Estrategias digitales personalizadas para aumentar tu visibilidad y alcanzar tus metas comerciales.</p>
+
+                        </div>
+
+                        <div class="card-action">
+
+                            <a href="#">Ver Detalles</a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="contacto" class="mb-5">
+
+            <h2 class="text-center mb-4">Contáctanos</h2>
+
+            <div class="row">
+
+                <div class="col-md-8 offset-md-2">
+
+                    <div class="card p-4">
+
+                        <form>
+
+                            <div class="input-field">
+
+                                <i class="material-icons prefix">account_circle</i>
+
+                                <input id="nombre" type="text" class="validate">
+
+                                <label for="nombre">Nombre</label>
+
+                            </div>
+
+                            <div class="input-field">
+
+                                <i class="material-icons prefix">email</i>
+
+                                <input id="email" type="email" class="validate">
+
+                                <label for="email">Email</label>
+
+                            </div>
+
+                            <div class="input-field">
+
+                                <i class="material-icons prefix">message</i>
+
+                                <textarea id="mensaje" class="materialize-textarea"></textarea>
+
+                                <label for="mensaje">Mensaje</label>
+
+                            </div>
+
+                            <div class="text-center mt-4">
+
+                                <button class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">Enviar
+
+                                    <i class="material-icons right">send</i>
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="page-footer light-blue darken-4">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col l6 s12">
+
+                    <h5 class="white-text">Mi Marca</h5>
+
+                    <p class="grey-text text-lighten-4">Donde la innovación y el diseño se encuentran.</p>
+
+                </div>
+
+                <div class="col l4 offset-l2 s12">
+
+                    <h5 class="white-text">Enlaces</h5>
+
+                    <ul>
+
+                        <li><a class="grey-text text-lighten-3" href="#!">Política de Privacidad</a></li>
+
+                        <li><a class="grey-text text-lighten-3" href="#!">Términos y Condiciones</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-copyright">
+
+            <div class="container">
+
+            © 2023 Mi Página Web Mejorada. Todos los derechos reservados.
+
+            <a class="grey-text text-lighten-4 right" href="#!">Más Enlaces</a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Inicializar Sidenav para móviles
+
+            var elems = document.querySelectorAll('.sidenav');
+
+            var instances = M.Sidenav.init(elems);
+
+            // Puedes agregar más inicializaciones de Materialize aquí si las usas, por ejemplo:
+
+            // M.Tooltip.init(document.querySelectorAll('.tooltipped'));
+
+            // M.FormSelect.init(document.querySelectorAll('select'));
+
+        });
+
+    </script>
+
+</body>
+
+</html>
