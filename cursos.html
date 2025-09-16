@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cursos Futura - Cursos Online del Mañana</title>
+
+    <link rel="icon" type="image/png" href="https://via.placeholder.com/32x32?text=F">
+
+    <style>
+
+        /* Variables y Estilos Generales */
+
+        :root {
+
+            --primary-color: #00f2ff; /* Azul cian neón */
+
+            --secondary-color: #ff007f; /* Magenta neón */
+
+            --background-color: #0c0c22; /* Azul muy oscuro, casi negro */
+
+            --card-background: #1a1a38;
+
+            --text-color: #e0e0e0;
+
+            --font-family: 'Space Mono', 'Roboto Mono', monospace;
+
+        }
+
+        body {
+
+            font-family: var(--font-family);
+
+            margin: 0;
+
+            padding: 0;
+
+            background-color: var(--background-color);
+
+            color: var(--text-color);
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+
+            transition: background-color 0.5s ease;
+
+        }
+
+        .container {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 0 20px;
+
+        }
+
+        /* Efecto de fondo animado */
+
+        body::before {
+
+            content: '';
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: radial-gradient(circle, rgba(0,242,255,0.1) 0%, rgba(12,12,34,0) 70%);
+
+            z-index: -1;
+
+            animation: pulse 15s infinite ease-in-out;
+
+        }
+
+        
+
+        @keyframes pulse {
+
+            0% { transform: scale(1); opacity: 0.1; }
+
+            50% { transform: scale(1.1); opacity: 0.2; }
+
+            100% { transform: scale(1); opacity: 0.1; }
+
+        }
+
+        /* Cabecera y Navegación */
+
+        .header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 20px 0;
+
+            border-bottom: 2px solid var(--primary-color);
+
+            box-shadow: 0 0 15px var(--primary-color);
+
+            transition: all 0.5s ease-in-out;
+
+        }
+
+        .logo {
+
+            font-size: 1.8em;
+
+            font-weight: bold;
+
+            color: var(--primary-color);
+
+            text-shadow: 0 0 10px var(--primary-color);
+
+            transition: transform 0.3s ease;
+
+        }
+
+        
+
+        .logo:hover {
+
+            transform: scale(1.05);
+
+        }
+
+        .nav a {
+
+            color: var(--text-color);
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 1.1em;
+
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+
+        }
+
+        .nav a:hover {
+
+            color: var(--secondary-color);
+
+            text-shadow: 0 0 8px var(--secondary-color);
+
+        }
+
+        
+
+        /* Sección Héroe */
+
+        .hero {
+
+            text-align: center;
+
+            padding: 100px 0;
+
+            transition: transform 0.5s ease-out;
+
+            transform: translateY(20px);
+
+            opacity: 0;
+
+            animation: fadeInUp 1.5s forwards;
+
+        }
+
+        .hero h1 {
+
+            font-size: 3.5em;
+
+            text-transform: uppercase;
+
+            margin: 0 0 20px;
+
+            color: var(--primary-color);
+
+            text-shadow: 0 0 15px var(--primary-color);
+
+            animation: neonPulse 2s infinite alternate;
+
+        }
+
+        
+
+        @keyframes neonPulse {
+
+            from { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color); }
+
+            to { text-shadow: 0 0 15px var(--primary-color), 0 0 30px var(--primary-color); }
+
+        }
+
+        .hero p {
+
+            font-size: 1.4em;
+
+            max-width: 600px;
+
+            margin: 0 auto 30px;
+
+            color: var(--secondary-color);
+
+            text-shadow: 0 0 5px var(--secondary-color);
+
+        }
+
+        .cta-button {
+
+            display: inline-block;
+
+            padding: 15px 30px;
+
+            background: var(--primary-color);
+
+            color: var(--background-color);
+
+            text-decoration: none;
+
+            border-radius: 5px;
+
+            font-size: 1.2em;
+
+            font-weight: bold;
+
+            box-shadow: 0 0 10px var(--primary-color);
+
+            transition: all 0.4s ease;
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+        
+
+        .cta-button::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+
+            z-index: -1;
+
+            opacity: 0;
+
+            transition: opacity 0.4s ease;
+
+        }
+
+        
+
+        .cta-button:hover {
+
+            color: #fff;
+
+            transform: scale(1.05);
+
+            box-shadow: 0 0 20px var(--primary-color);
+
+        }
+
+        
+
+        .cta-button:hover::before {
+
+            opacity: 1;
+
+        }
+
+        /* Sección de Cursos */
+
+        .courses {
+
+            padding: 80px 0;
+
+            text-align: center;
+
+        }
+
+        .courses h2 {
+
+            font-size: 2.5em;
+
+            margin-bottom: 50px;
+
+            text-transform: uppercase;
+
+            color: var(--primary-color);
+
+            text-shadow: 0 0 10px var(--primary-color);
+
+        }
+
+        
+
+        .course-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 30px;
+
+        }
+
+        
+
+        .course-card {
+
+            background-color: var(--card-background);
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+
+            position: relative;
+
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            opacity: 0;
+
+            transform: translateY(50px);
+
+        }
+
+        
+
+        .course-card img {
+
+            width: 100%;
+
+            height: 200px;
+
+            object-fit: cover;
+
+            filter: grayscale(100%);
+
+            transition: filter 0.5s ease;
+
+        }
+
+        
+
+        .course-card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 0 25px rgba(0, 242, 255, 0.5);
+
+        }
+
+        
+
+        .course-card:hover img {
+
+            filter: grayscale(0%);
+
+        }
+
+        .card-content {
+
+            padding: 20px;
+
+            text-align: left;
+
+        }
+
+        
+
+        .card-content h3 {
+
+            font-size: 1.5em;
+
+            color: var(--primary-color);
+
+            margin-top: 0;
+
+            transition: color 0.3s ease;
+
+        }
+
+        
+
+        .course-card:hover h3 {
+
+            color: var(--secondary-color);
+
+        }
+
+        .card-content p {
+
+            font-size: 1em;
+
+            color: var(--text-color);
+
+            margin-bottom: 20px;
+
+        }
+
+        
+
+        .course-link {
+
+            display: inline-block;
+
+            color: var(--secondary-color);
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+
+        }
+
+        
+
+        .course-link:hover {
+
+            color: var(--primary-color);
+
+            text-shadow: 0 0 5px var(--primary-color);
+
+        }
+
+        /* Sección de Suscripción */
+
+        .subscribe {
+
+            background-color: var(--card-background);
+
+            padding: 50px 0;
+
+            text-align: center;
+
+            border-top: 2px solid var(--primary-color);
+
+            border-bottom: 2px solid var(--primary-color);
+
+            box-shadow: 0 0 20px rgba(0,242,255,0.2);
+
+            transition: box-shadow 0.5s ease;
+
+        }
+
+        
+
+        .subscribe h2 {
+
+            font-size: 2em;
+
+            margin-bottom: 20px;
+
+            color: var(--secondary-color);
+
+            text-shadow: 0 0 10px var(--secondary-color);
+
+        }
+
+        
+
+        .subscribe p {
+
+            max-width: 600px;
+
+            margin: 0 auto 30px;
+
+        }
+
+        
+
+        .subscribe form {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+        }
+
+        
+
+        .subscribe input[type="email"] {
+
+            padding: 12px 20px;
+
+            border: 1px solid var(--primary-color);
+
+            background: transparent;
+
+            color: var(--text-color);
+
+            border-radius: 5px;
+
+            font-family: var(--font-family);
+
+            width: 300px;
+
+            transition: all 0.3s ease;
+
+        }
+
+        .subscribe input[type="email"]:focus {
+
+            outline: none;
+
+            border-color: var(--secondary-color);
+
+            box-shadow: 0 0 8px var(--secondary-color);
+
+        }
+
+        
+
+        .subscribe button {
+
+            padding: 12px 25px;
+
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+
+            color: var(--background-color);
+
+            border: none;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        }
+
+        
+
+        .subscribe button:hover {
+
+            transform: scale(1.05);
+
+            box-shadow: 0 0 15px var(--secondary-color);
+
+        }
+
+        /* Pie de página */
+
+        .footer {
+
+            text-align: center;
+
+            padding: 30px 0;
+
+            border-top: 1px solid rgba(255,255,255,0.1);
+
+            margin-top: 50px;
+
+            color: #aaa;
+
+            font-size: 0.9em;
+
+        }
+
+        /* Animaciones JS */
+
+        @keyframes fadeInUp {
+
+            to {
+
+                transform: translateY(0);
+
+                opacity: 1;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="header">
+
+            <div class="logo">CURSOS FUTURA</div>
+
+            <nav class="nav">
+
+                <a href="#">Inicio</a>
+
+                <a href="#">Cursos</a>
+
+                <a href="#">Sobre Nosotros</a>
+
+                <a href="#">Contacto</a>
+
+            </nav>
+
+        </header>
+
+        <section class="hero">
+
+            <h1>El Futuro del Conocimiento, Hoy.</h1>
+
+            <p>Aprende las habilidades más demandadas en el universo digital con nuestros cursos de última generación.</p>
+
+            <a href="#cursos" class="cta-button">Explora los Cursos</a>
+
+        </section>
+
+        <section id="cursos" class="courses">
+
+            <h2>Nuestros Cursos</h2>
+
+            <div class="course-grid">
+
+                <article class="course-card">
+
+                    <img src="https://via.placeholder.com/400x200?text=CIBERSEGURIDAD" alt="Curso de Ciberseguridad">
+
+                    <div class="card-content">
+
+                        <h3>Ciberseguridad Avanzada</h3>
+
+                        <p>Domina las técnicas de defensa digital y protege la información en el ciberespacio.</p>
+
+                        <a href="#" class="course-link">Ver Curso →</a>
+
+                    </div>
+
+                </article>
+
+                
+
+                <article class="course-card">
+
+                    <img src="https://via.placeholder.com/400x200?text=IA+GENERATIVA" alt="Curso de IA Generativa">
+
+                    <div class="card-content">
+
+                        <h3>Desarrollo de IA Generativa</h3>
+
+                        <p>Crea modelos de inteligencia artificial capaces de generar contenido creativo.</p>
+
+                        <a href="#" class="course-link">Ver Curso →</a>
+
+                    </div>
+
+                </article>
+
+                <article class="course-card">
+
+                    <img src="https://via.placeholder.com/400x200?text=REALIDAD+VIRTUAL" alt="Curso de Realidad Virtual">
+
+                    <div class="card-content">
+
+                        <h3>Fundamentos de Realidad Virtual</h3>
+
+                        <p>Diseña y programa entornos inmersivos para el metaverso y más allá.</p>
+
+                        <a href="#" class="course-link">Ver Curso →</a>
+
+                    </div>
+
+                </article>
+
+                <article class="course-card">
+
+                    <img src="https://via.placeholder.com/400x200?text=BLOCKCHAIN" alt="Curso de Blockchain">
+
+                    <div class="card-content">
+
+                        <h3>Blockchain y Web3</h3>
+
+                        <p>Entiende la tecnología detrás de las criptomonedas y las aplicaciones descentralizadas.</p>
+
+                        <a href="#" class="course-link">Ver Curso →</a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="subscribe">
+
+            <h2>Únete a la Vanguardia Tecnológica</h2>
+
+            <p>Suscríbete a nuestra newsletter para recibir las últimas noticias sobre cursos y tecnología del futuro.</p>
+
+            <form id="subscribeForm">
+
+                <input type="email" placeholder="Ingresa tu correo electrónico..." required>
+
+                <button type="submit">Suscribirme</button>
+
+            </form>
+
+        </section>
+
+    </div>
+
+    <footer class="footer">
+
+        <p>&copy; 2024 Cursos Futura. Todos los derechos reservados.</p>
+
+    </footer>
+
+    <script>
+
+        // Animación de aparición de las tarjetas de cursos
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const courseCards = document.querySelectorAll('.course-card');
+
+            const observerOptions = {
+
+                root: null,
+
+                rootMargin: '0px',
+
+                threshold: 0.1 // Porcentaje de visibilidad para activar la animación
+
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.style.opacity = '1';
+
+                        entry.target.style.transform = 'translateY(0)';
+
+                        entry.target.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+
+                        observer.unobserve(entry.target); // Dejar de observar una vez animado
+
+                    }
+
+                });
+
+            }, observerOptions);
+
+            courseCards.forEach(card => {
+
+                observer.observe(card);
+
+            });
+
+            // Formulario de suscripción (ejemplo)
+
+            const subscribeForm = document.getElementById('subscribeForm');
+
+            subscribeForm.addEventListener('submit', (e) => {
+
+                e.preventDefault();
+
+                alert('¡Gracias por suscribirte a Cursos Futura!');
+
+                subscribeForm.reset();
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+
